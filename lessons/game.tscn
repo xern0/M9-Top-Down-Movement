@@ -9,15 +9,18 @@
 y_sort_enabled = true
 
 [node name="Circuit Background" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -2
+y_sort_enabled = true
 texture = ExtResource("1_4o7yg")
 
 [node name="Runner" parent="." instance=ExtResource("1_yasw7")]
 position = Vector2(437, 136)
 
 [node name="SimpleObstacle" parent="." instance=ExtResource("2_4o7yg")]
+y_sort_enabled = true
 position = Vector2(463, 328)
 
 [node name="Circuit" parent="." instance=ExtResource("4_gkp25")]
-z_index = 1
+z_index = -1
+y_sort_enabled = true
 position = Vector2(1, -4)
