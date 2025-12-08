@@ -1,12 +1,35 @@
-[gd_scene load_steps=8 format=3 uid="uid://p75euy1gcr34"]
+[gd_scene load_steps=14 format=3 uid="uid://p75euy1gcr34"]
 
 [ext_resource type="Script" uid="uid://cpxf6c874di4x" path="res://lessons/runner.gd" id="1_h1hi2"]
 [ext_resource type="Texture2D" uid="uid://dbcmxo51msi8m" path="res://assets/runner/shadow.png" id="2_ipi7s"]
 [ext_resource type="PackedScene" uid="uid://bm8s1oaoxngwq" path="res://assets/runner/runner_visual_red.tscn" id="3_ipi7s"]
 [ext_resource type="Shader" uid="uid://bwhexggpo0snf" path="res://assets/character_contour.gdshader" id="4_2nvb5"]
+[ext_resource type="Texture2D" uid="uid://bkq3gfbp5fwqx" path="res://assets/circle_64x64.png" id="5_x5rx3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h1hi2"]
 radius = 25.019993
+
+[sub_resource type="Curve" id="Curve_cl8lt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7967836, 1), -1.6307813e-06, -1.6307813e-06, 0, 0, Vector2(1, 0), 0.18411858, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d46nv"]
+curve = SubResource("Curve_cl8lt")
+
+[sub_resource type="Curve" id="Curve_agra7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pb15w"]
+curve = SubResource("Curve_agra7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_28xeg"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -10, 0)
+scale_min = 0.5
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_pb15w")
+alpha_curve = SubResource("CurveTexture_d46nv")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2nvb5"]
 shader = ExtResource("4_2nvb5")
@@ -30,6 +53,11 @@ modulate = Color(0, 0, 0, 0.15686275)
 position = Vector2(0, -15)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ipi7s")
+
+[node name="dust" type="GPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("5_x5rx3")
+process_material = SubResource("ParticleProcessMaterial_28xeg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
