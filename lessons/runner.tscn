@@ -55,6 +55,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ipi7s")
 
 [node name="dust" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
 emitting = false
 texture = ExtResource("5_x5rx3")
 process_material = SubResource("ParticleProcessMaterial_28xeg")
