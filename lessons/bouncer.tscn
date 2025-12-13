@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://budpgxkjtmw1f"]
+[gd_scene load_steps=15 format=3 uid="uid://budpgxkjtmw1f"]
 
 [ext_resource type="Script" uid="uid://cvovse0lvo8pp" path="res://lessons/bouncer.gd" id="1_o17vw"]
 [ext_resource type="Texture2D" uid="uid://dbcmxo51msi8m" path="res://assets/runner/shadow.png" id="2_41ggd"]
@@ -7,7 +7,7 @@
 [ext_resource type="Shader" uid="uid://bwhexggpo0snf" path="res://assets/character_contour.gdshader" id="5_wkdje"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h1hi2"]
-radius = 25.019993
+radius = 33.01515
 
 [sub_resource type="Curve" id="Curve_cl8lt"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7967836, 1), -1.6307813e-06, -1.6307813e-06, 0, 0, Vector2(1, 0), 0.18411858, 0.0, 0, 0]
@@ -40,12 +40,15 @@ shader_parameter/line_thickness = 2.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_x5rx3"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o17vw"]
+radius = 33.06055
+
 [node name="Bouncer" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_o17vw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -17)
+position = Vector2(0, -38)
 shape = SubResource("CircleShape2D_h1hi2")
 
 [node name="Shadow" type="Sprite2D" parent="."]
@@ -73,3 +76,11 @@ scale = Vector2(0.5, 0.5)
 material = SubResource("ShaderMaterial_2nvb5")
 position = Vector2(0, -58)
 texture = SubResource("ViewportTexture_x5rx3")
+
+[node name="HitBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -38)
+shape = SubResource("CircleShape2D_o17vw")
+
