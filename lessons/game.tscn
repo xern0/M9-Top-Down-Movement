@@ -59,3 +59,17 @@ unique_name_in_owner = true
 process_mode = 3
 animation_duration = 0.1
 menu_opened_amount = 1.0
+
+[node name="obstacles" type="Node2D" parent="."]
+
+[node name="SimpleObstacle" parent="obstacles" instance=ExtResource("10_2l282")]
+position = Vector2(-346, -843)
+
+[node name="SimpleObstacle2" parent="obstacles" instance=ExtResource("10_2l282")]
+position = Vector2(36, -973)
+
+[node name="SimpleObstacle3" parent="obstacles" instance=ExtResource("10_2l282")]
+position = Vector2(75, -130)
+
+[node name="SimpleObstacle4" parent="obstacles" instance=ExtResource("10_2l282")]
+position = Vector2(799, -578)
